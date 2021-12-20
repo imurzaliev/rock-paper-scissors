@@ -5,4 +5,13 @@ function computerPlay() {
   return move;
 }
 
-console.log(computerPlay());
+function userPlay() {
+  const userMove = prompt("What is your move? Rock, Papper, Scissors");
+  return userMove;
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+console.log(computerPlay(), capitalizeFirstLetter(userPlay()));
