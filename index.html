@@ -4,18 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="./app.js" defer></script>
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
-    <div class="results">
-      <p id="score">Your Score: 0 Computer Score: 0</p>
-      <p id="text"></p>
-    </div>
-    <div class="btns">
-      <button class="button" value="Rock" id="rock">Rock</button>
-      <button class="button" value="Paper" id="paper">Paper</button>
-      <button class="button" value="Scissors" id="scissors">Scissors</button>
+    <div class="container">
+      <div class="results">
+        <div class="score">
+          <p>Your Score: <span class="number" id="you">0</span></p>
+          <p><span class="number" id="computer">0</span> :Computer Score</p>
+        </div>
+        <div class="display">
+          <p id="youMove">X</p>
+          <p id="winner">X</p>
+          <p id="compMove">X</p>
+        </div>
+      </div>
+      <div class="btns">
+        <button class="button" value="Rock" id="rock">Rock</button>
+        <button class="button" value="Paper" id="paper">Paper</button>
+        <button class="button" value="Scissors" id="scissors">Scissors</button>
+      </div>
     </div>
   </body>
 </html>

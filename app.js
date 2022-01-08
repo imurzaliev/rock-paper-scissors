@@ -3,15 +3,21 @@ let computerScore = 0;
 let userScore = 0;
 let userPlay = "";
 
-const score = document.querySelector("#score");
-const text = document.querySelector("#text");
+const scorePlayer1 = document.querySelector("#you");
+const scorePlayer2 = document.querySelector("#computer");
+const movePlayer1 = document.querySelector("#youMove");
+const movePlayer2 = document.querySelector("#compMove");
+const roundWinner = document.querySelector("#winner");
+
+const display = document.querySelector(".display");
 const buttons = document.querySelectorAll(".button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     userPlay = button.value;
     playRound(userPlay, computerPlay());
-    score.textContent = `Your Score: ${userScore} Computer Score: ${computerScore}`;
+    scorePlayer1.textContent = userScore;
+    scorePlayer2.textContent = computerScore;
     if (userScore == 5 || computerScore == 5) {
       game();
       userScore = 0;
@@ -26,45 +32,41 @@ function computerPlay() {
 }
 
 function playRound(userSelection, computerSelection) {
+  movePlayer1.textContent = userSelection;
+  movePlayer2.textContent = computerSelection;
+
   if (computerSelection === userSelection) {
-    text.textContent = `computer:${computerSelection} vs you:${userSelection}
-    Draw`;
+    roundWinner.textContent = "Draw";
   } else if (computerSelection == "Rock" && userSelection == "Scissors") {
     computerScore++;
-    text.textContent = `computer:${computerSelection} vs you:${userSelection}
-      You Lose! Rock beats Scissors`;
+    roundWinner.textContent = `You Lose! ${computerSelection} beats ${userSelection}`;
   } else if (computerSelection == "Paper" && userSelection == "Rock") {
     computerScore++;
-    text.textContent = `computer:${computerSelection} vs you:${userSelection}
-      You Lose! Paper beats Rock`;
+    roundWinner.textContent = "You Lose!";
   } else if (computerSelection == "Scissors" && userSelection == "Paper") {
     computerScore++;
-    text.textContent = `computer:${computerSelection} vs you:${userSelection}
-      You Lose! Scissors beats Paper`;
+    roundWinner.textContent = "You Lose!";
   } else if (computerSelection == "Scissors" && userSelection == "Rock") {
     userScore++;
-    text.textContent = `computer:${computerSelection} vs you:${userSelection}
-      You Win! Rock beats Scissors`;
+    roundWinner.textContent = "You Win!";
   } else if (computerSelection == "Rock" && userSelection == "Paper") {
     userScore++;
-    text.textContent = `computer:${computerSelection} vs you:${userSelection}
-      You Win! Paper beats Rock`;
+    roundWinner.textContent = "You Win!";
   } else {
     userScore++;
-    text.textContent = `computer:${computerSelection} vs you:${userSelection}
-      You Win! Scissors beats Paper`;
+    roundWinner.textContent = "You Win!";
   }
 }
 
 function game() {
   if (computerScore > userScore) {
-    text.textContent = `You Loose!
-        Your score is ${userScore} and compures scores is ${computerScore}`;
+    display.textContent = `You Lose!
+        Your score is ${userScore} and computers scores is ${computerScore}`;
   } else if (computerScore < userScore) {
-    text.textContent = `You Win!
-      Your score is ${userScore} and compures scores is ${computerScore}`;
+    display.textContent = `You Win!
+      Your score is ${userScore} and computers scores is ${computerScore}`;
   } else {
-    text.textContent = `It's a draw!
-      Your score is ${userScore} and compures scores is ${computerScore}`;
+    display.textContent = `It's a draw!
+      Your score is ${userScore} and computers scores is ${computerScore}`;
   }
 }
