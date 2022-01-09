@@ -39,7 +39,7 @@ function playRound(userSelection, computerSelection) {
     roundWinner.textContent = "Draw";
   } else if (computerSelection == "Rock" && userSelection == "Scissors") {
     computerScore++;
-    roundWinner.textContent = `You Lose! ${computerSelection} beats ${userSelection}`;
+    roundWinner.textContent = "You Lose! ";
   } else if (computerSelection == "Paper" && userSelection == "Rock") {
     computerScore++;
     roundWinner.textContent = "You Lose!";
